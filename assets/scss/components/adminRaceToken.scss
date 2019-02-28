@@ -1,0 +1,8 @@
+.admin-race-token {
+  &.public {
+    background-color: $green;
+  }
+  &.private {
+    background-color: $red;
+  }
+}

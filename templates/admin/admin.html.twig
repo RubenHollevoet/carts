@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('vue-admin') }}
+{% endblock %}
+
+{% block body %}
+    <div id="app" class="app bg2">
+       <div class="flex-center">
+           <h1>Admin</h1>
+           <h2>name</h2>
+           <input type="text" v-bind:value="race.name">
+           <h2>admin code</h2>
+           <input type="text" v-bind:value="race.publicHash" disabled>
+           <h2>user code</h2>
+           <input type="text" v-bind:value="race.privateHash" disabled>
+           <h2>stops - {{'{{ stops.length }}'}}</h2>
+           <ul class="participants">
+               <stopover-item
+                       v-for="stop in stops"
+                       v-bind:img="stop.img"
+                       v-bind:key="stop.id"
+               ></stopover-item>
+           </ul>
+           <span @click="addStop" class="btn green rounded press-me"><span class="fa fa-plus"></span></span>
+           <h2>members - {{'{{ participants.length }}'}}/20</h2>
+           <ul class="participants">
+               <participant-item
+                       v-for="participant in participants"
+                       v-bind:participant="participant"
+                       v-bind:key="participant.id"
+               ></participant-item>
+           </ul>
+       </div>
+    </div>
+{% endblock %}

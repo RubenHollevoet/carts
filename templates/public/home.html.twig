@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('vue-home') }}
+{% endblock %}
+
+{% block body %}
+    <div id="app" class="app bg2">
+        <div class="flex-center">
+            <h1>Real Carts</h1>
+            <input class="small" type="text" placeholder="Code" maxlength="6">
+            <a href="{{ path('app.lobby') }}" class="btn orange rounded press-me">Naar de lobby</a>
+            <h2>Ga naar je races</h2>
+            <ul class="race-manage-controller">
+                <admin-race-token-item
+                        v-for="(race, index) in adminRaces"
+                        v-bind:race="race"
+                        v-bind:key="index"
+                ></admin-race-token-item>
+            </ul>
+            <h2>or</h2>
+            <input type="text" placeholder="voer admin code in">
+            <span @click="createRace" class="btn orange rounded press-me">Maak een nieuwe race</span>
+        </div>
+    </div>
+{% endblock %}

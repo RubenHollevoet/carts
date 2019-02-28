@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="app" class="app bg1">
+        <div class="flex-center">
+            <h1>Lobby</h1>
+            <input type="text" placeholder="Nickname" maxlength="18">
+            <h2>Avatar</h2>
+            <div class="img-grid">
+                <avatar-item
+                        v-for="avatar in avatars"
+                        v-bind:data="avatar"
+                        v-bind:key="avatar.id"
+                ></avatar-item>
+            </div>
+            <a href="#" id="ready" class="btn red rounded press-me">Klaar</a>
+        </div>
+        <div class="flex-center">
+            <h2>Medespelers</h2>
+            <ul class="participants">
+                <participant-item
+                        v-for="participant in participants"
+                        v-bind:participant="participant"
+                        v-bind:key="participant.id"
+                ></participant-item>
+            </ul>
+            <a href="/admin.html">admin temp</a>
+            <span>spel start in <strong>00:00:00</strong></span>
+        </div>
+    </div>
+{% endblock %}

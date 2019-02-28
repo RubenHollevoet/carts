@@ -1,0 +1,123 @@
+html {
+  font-family: 'Galindo', cursive;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  color: $orange;
+  font-size: 4rem;
+}
+
+h2 {
+  color: $orange;
+  font-size: 2rem;
+}
+
+.app {
+  max-width: 600px;
+  min-height: 100%;
+  margin: 0 auto;
+}
+
+.img-grid {
+  max-width: 450px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  .img {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border-radius: 5px;
+    border: 3px solid rgba(0,0,0,0);
+    cursor: pointer;
+
+    &:hover {
+      border: 3px solid $red-hover;
+    }
+
+    &.active {
+      border: 3px solid $red;
+    }
+
+    > img {
+      border-radius: 5px;
+    }
+  }
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.participants {
+  list-style: none;
+  width: 80%;
+  padding: 0px;
+  li {
+    width: 100%;
+    padding: 6px 12px;
+    margin: 4px 0px;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 1.2em;
+    color: $blue;
+
+    &:before {
+      display: inline-block;
+      content: '';
+      height: 0.75em;
+      width: 0.75em;
+      margin-right: 1em;
+      border-radius: 1em;
+      background-color: $orange;
+    }
+
+    &.ready:before {
+      background-color: $green;
+    }
+  }
+}
+
+
+.bg1 {
+  $bg_col1: $blue;
+  $bg_col2: $blue-hover;
+
+  background:
+          linear-gradient(135deg, $bg_col1 25%, transparent 25%) -50px 0,
+          linear-gradient(225deg, $bg_col1 25%, transparent 25%) -50px 0,
+          linear-gradient(315deg, $bg_col1 25%, transparent 25%),
+          linear-gradient(45deg, $bg_col1 25%, transparent 25%);
+  background-size: 100px 100px;
+  background-color: $bg_col2;
+}
+
+.bg2 {
+  $bg_col1: $blue;
+  $bg_col2: $blue-hover;
+
+  background-color: $bg_col1;
+  background-size: 58px 58px;
+  background-position: 0px 2px, 4px 35px, 29px 31px, 33px 6px,
+  0px 36px, 4px 2px, 29px 6px, 33px 30px;
+  background-image:
+          linear-gradient(335deg, $bg_col2 23px, transparent 23px),
+          linear-gradient(155deg, $bg_col2 23px, transparent 23px),
+          linear-gradient(335deg, $bg_col2 23px, transparent 23px),
+          linear-gradient(155deg, $bg_col2 23px, transparent 23px),
+
+          linear-gradient(335deg, $bg_col2 10px, transparent 10px),
+          linear-gradient(155deg, $bg_col2 10px, transparent 10px),
+          linear-gradient(335deg, $bg_col2 10px, transparent 10px),
+          linear-gradient(155deg, $bg_col2 10px, transparent 10px);
+}

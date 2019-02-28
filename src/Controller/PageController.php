@@ -2,19 +2,21 @@
 
 namespace App\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ApiController extends AbstractController
+class PageController extends AbstractController
 {
+
     /**
-     * @Route("/api", name="api")
+     * @Route("/page", name="page")
      */
     public function index()
     {
         return $this->json([
             'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/ApiController.php',
+            'path' => 'src/Controller/PageController.php',
         ]);
     }
 }
