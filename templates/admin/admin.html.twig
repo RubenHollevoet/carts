@@ -7,14 +7,20 @@
 
 {% block body %}
     <div id="app" class="app bg2">
+        <span class="home-btn">
+            <a href="{{ path('app.index') }}" class="btn dark-blue press-me fa fa-home"></a>
+        </span>
+        <div class="footer-overlay">
+            <span class="btn green press-me">Opslaan <span class="fa fa-save"></span></span>
+        </div>
        <div class="flex-center">
            <h1>Admin</h1>
            <h2>name</h2>
-           <input type="text" v-bind:value="race.name">
+           <input type="text" v-model="race.name" @input="saveContent">
            <h2>admin code</h2>
-           <input type="text" v-bind:value="race.publicHash" disabled>
+           <input type="text" v-bind:value="race.publicAccessToken" disabled>
            <h2>user code</h2>
-           <input type="text" v-bind:value="race.privateHash" disabled>
+           <input type="text" v-bind:value="race.privateAccessToken" disabled>
            <h2>stops - {{'{{ stops.length }}'}}</h2>
            <ul class="participants">
                <stopover-item
@@ -23,7 +29,7 @@
                        v-bind:key="stop.id"
                ></stopover-item>
            </ul>
-           <span @click="addStop" class="btn green rounded press-me"><span class="fa fa-plus"></span></span>
+           <span @click="addStop" class="btn green press-me"><span class="fa fa-plus"></span></span>
            <h2>members - {{'{{ participants.length }}'}}/20</h2>
            <ul class="participants">
                <participant-item

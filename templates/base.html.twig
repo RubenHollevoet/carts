@@ -2,7 +2,10 @@
 <html>
 <head>
     {% block stylesheets %}
-            <link href="https://fonts.googleapis.com/css?family=Galindo" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Galindo" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
         {# 'app' must match the first argument to addEntry() in webpack.config.js #}
         {{ encore_entry_link_tags('app') }}
 
@@ -21,7 +24,6 @@
         <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> PROD -->
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
 
     {{ encore_entry_script_tags('app') }}
 

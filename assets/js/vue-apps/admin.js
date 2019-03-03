@@ -1,10 +1,13 @@
+import { apiGetRace, apiUpdateRace } from "../apiCalls";
+import { storageCreateOrUpdateRace } from "../helpers";
+
 var app = new Vue({
     el: '#app',
     data: {
         race: {
-            name: 'test race 1',
-            publicHash: '',
-            privateHash: 'private-123'
+            name: '',
+            publicAccessToken: '',
+            privateAccessToken: ''
         },
         participants: [
             { id: 0, status: 'ready', name: 'Ruben', avatar: 4 },
@@ -24,11 +27,34 @@ var app = new Vue({
         }
     },
     methods: {
+        saveContent: function() {
+            console.log('saveContent');
+            document.querySelector('.footer-overlay').classList.add('open');
+
+            console.log(this.race);
+
+            apiUpdateRace({privateAccessToken: this.race.privateAccessToken, name: this.race.name});
+            storageCreateOrUpdateRace(this.race);
+        },
         addStop: function() {
             this.stops.push({
                 id: this.stops.length, img: ('https://robohash.org/' + this.stops.length)
             });
             console.log('add stop');
-        }
+        },
+    },
+    mounted: function() {
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const privateAccessToken = urlParams.get('t');
+
+
+        self = this;
+        apiGetRace(privateAccessToken, function(race) {
+            console.log(self.race, race);
+            Object.assign(self.race, race);
+            console.log(self.race);
+        });
+
     }
 });

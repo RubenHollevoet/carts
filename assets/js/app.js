@@ -28,8 +28,3 @@ avatarArr.forEach(function ($avatar) {
         e.currentTarget.classList.add('active');
     });
 });
-
-document.querySelector('#ready').addEventListener('click', function(e) {
-    e.currentTarget.classList.add('green');
-    e.currentTarget.classList.remove('red');
-});

@@ -1,8 +1,43 @@
+.race-manage-controller {
+  display: flex;
+  flex-direction: column;
+}
+
 .admin-race-token {
-  &.public {
-    background-color: $green;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  width: 28rem;
+  padding: 16px 0;
+  border-radius:5px;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  .close {
+    //position: relative;
+    //right: 5px;
+    //top: 5px;
   }
-  &.private {
-    background-color: $red;
+
+  .actions {
+    padding-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > * {
+      margin: 0 8px;
+    }
+  }
+  
+  .name {
+    color: $blue;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  
+  .time {
+    color: $grey-hover;
+    font-size: 1rem;
+    text-align: center;
   }
 }

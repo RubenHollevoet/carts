@@ -10,18 +10,18 @@
         <div class="flex-center">
             <h1>Real Carts</h1>
             <input class="small" type="text" placeholder="Code" maxlength="6">
-            <a href="{{ path('app.lobby') }}" class="btn orange rounded press-me">Naar de lobby</a>
+            <a href="{{ path('app.lobby') }}" class="btn orange press-me">Naar de lobby</a>
             <h2>Ga naar je races</h2>
-            <ul class="race-manage-controller">
+            <div class="race-manage-controller">
                 <admin-race-token-item
                         v-for="(race, index) in adminRaces"
                         v-bind:race="race"
                         v-bind:key="index"
                 ></admin-race-token-item>
-            </ul>
-            <h2>or</h2>
-            <input type="text" placeholder="voer admin code in">
-            <span @click="createRace" class="btn orange rounded press-me">Maak een nieuwe race</span>
+            </div>
+            <span @click="createRace" class="btn orange press-me">Maak een nieuwe race</span>
+            <h2>of</h2>
+            <input type="text" maxlength="12" @change="checkAdminCode" v-model="adminCodeField" placeholder="voer admin code in">
         </div>
     </div>
 {% endblock %}

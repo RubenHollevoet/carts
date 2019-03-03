@@ -18,15 +18,18 @@
   top:0;
   text-shadow:0 1px 1px rgba(0, 0, 0, 0.5);
   transition: all 0.2s ease-in-out 0s;
-}
-
-.btn.rounded{
   border-radius:5px;
   &[class*='effect-']{
     &:after{
       border-radius:5px;
     }
   }
+}
+
+
+.btn.small {
+  margin: 6px;
+  padding: 10px 8px;
 }
 
 .btn.press-me{
@@ -235,6 +238,35 @@
   &.effect-glow{
     &:hover{
       box-shadow: 0 0 10px 0 $red inset, 0 0 10px 2px $red;
+    }
+  }
+}
+.blue{
+  background:$blue;
+  color:#fff;
+  box-shadow: 0 3px 0 darken($blue,10%);
+  &:hover{
+    background:$blue-hover;
+  }
+  &:active, &:focus{
+    background:darken($blue, 3% );
+  }
+  &.press-me{
+    &:active{
+      box-shadow: 0 2px 0 darken($blue,10%);
+    }
+  }
+  &.transparent{
+    border-color:$blue;
+  }
+  &.effect-left, &.effect-right, &.effect-up, &.effect-down, &.effect-horiz, &.effect-vart, &.effect-box, &.effect-down-left, &.effect-up-right{
+    &:after{
+      background:$blue-hover;
+    }
+  }
+  &.effect-glow{
+    &:hover{
+      box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 2px $blue;
     }
   }
 }

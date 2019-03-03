@@ -1,0 +1,18 @@
+.footer-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255,255,255,0.5);
+  z-index: 3;
+  height: 0;
+  transition: height 0.3s;
+  overflow: hidden;
+}
+
+.footer-overlay.open {
+  height: 105px;
+}
